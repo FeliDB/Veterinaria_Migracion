@@ -5,5 +5,5 @@ wait 6
 docker-compose exec backend python manage.py makemigrations
 wait 6
 docker-compose exec backend python manage.py migrate
-wait 6
+wait 
 python mongo_migrator/migrator.py
