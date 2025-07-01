@@ -212,22 +212,19 @@ Este entorno de desarrollo levanta una base de datos PostgreSQL, una base de dat
 La razon por la que hemos optado por utilizar Mongo-Express y Adminer, es para evitar utilizar la linea de comandos para todas las consultas y analisis de datos. Dicho esto, vamos a proceder con el ingreso a la base de datos
 
 
-Para ello, simplemente ejecutamos el archivo __arrancar-proyecto.sh__ (Unix) o __arrancar-proyecto.bat__ (Windows) para iniciar el servidor.
-
-Este archivo al desglosarlo por dentro:
+Para ello, simplemente ejecutamos los siguientes comandos en ese orden en la terminal
 
 ```
 docker-compose down --volumes --remove-orphans 
 docker-compose build
 docker-compose up -d
-sleep 6
 docker-compose exec backend python manage.py makemigrations
-sleep 6
 docker-compose exec backend python manage.py migrate
-sleep 6
 python mongo_migrator/migrator.py
-
 ```
+
+Al desglosar estos comandos:
+
 
 - Elimina los contenedores y volumenes en caso de que ya existan
 - Levanta el contenedor (e instala las dependencias necesarias especificadas en requirements.txt que a su vez, Dockerfile tiene la configuracion para eso)
@@ -662,7 +659,6 @@ def populate_data(sender, **kwargs):
     except OperationalError as e:
         print(f"⚠️ Error de base de datos: {e}")
 ```
-
 
 
 
