@@ -211,8 +211,20 @@ Este entorno de desarrollo levanta una base de datos PostgreSQL, una base de dat
 
 La razon por la que hemos optado por utilizar Mongo-Express y Adminer, es para evitar utilizar la linea de comandos para todas las consultas y analisis de datos. Dicho esto, vamos a proceder con el ingreso a la base de datos
 
+Primeramente, tendremos que instalar las dependencias correspondientes para poder trabajar:
 
-Para ello, simplemente ejecutamos los siguientes comandos en ese orden en la terminal
+Nos situamos en la raiz del proyecto, y escribimos
+
+```
+pip install psycopg2 psycopg2-binary django pymongo
+```
+O en el caso de que utilicen **pip3**
+
+```
+pip install psycopg2 psycopg2-binary django pymongo
+```
+
+Luego, ejecutamos los siguientes comandos en ese orden en la terminal
 
 ```
 docker-compose down --volumes --remove-orphans 
